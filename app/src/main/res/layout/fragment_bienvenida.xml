@@ -10,10 +10,7 @@
 
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +22,7 @@
                 android:layout_width="180dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:text="Servicios"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textSize="40dp" />
@@ -35,7 +32,7 @@
                 android:layout_width="280dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/orange"
                 android:text="Grupos Musicales"
                 android:textColor="@color/black"
@@ -43,58 +40,26 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="450dp">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/idRecyclerArtista"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-                android:layout_marginLeft="35dp"
-                android:layout_marginRight="35dp"/>
-</ScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/idRecyclerArtista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp" />
+    </ScrollView>
 </RelativeLayout>
-
-
-            <Button
-                android:id="@+id/idSonido"
-                android:layout_width="280dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:backgroundTint="@color/orange"
-                android:text="Sonidos"
-                android:textColor="@color/black"
-                app:cornerRadius="15dp" />
-
-            <Button
-                android:id="@+id/idSolistas"
-                android:layout_width="280dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="150dp"
-                android:backgroundTint="@color/orange"
-                android:text="Solistas"
-                android:textColor="@color/black"
-                app:cornerRadius="15dp" />
-
-
-            <Button
-                android:id="@+id/idServicios"
-                android:layout_width="152dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/orange"
-                android:text="Registrar servicios"
-                android:textColor="@color/black"
-                app:cornerRadius="20dp" />
-
 
         </LinearLayout>
 
 
-    </ScrollView>
+
 
     <include
         android:layout_width="match_parent"

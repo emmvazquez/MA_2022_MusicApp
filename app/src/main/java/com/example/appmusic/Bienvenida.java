@@ -102,10 +102,9 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
 
 
 
-        Button bt3a1 = view.findViewById(R.id.idServicios);
+
         Button bt4a4 = view.findViewById(R.id.idGruposMusicales);
-        Button bt5a5 = view.findViewById(R.id.idSolistas);
-        Button bt6a6 = view.findViewById(R.id.idSonido);
+
 
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.topAppBar);
@@ -138,13 +137,7 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
 
 
 
-        bt3a1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_bienvenida2_to_datosArtistas);
 
-            }
-        });
 
         bt4a4.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -152,21 +145,6 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
                 Navigation.findNavController(view).navigate(R.id.action_bienvenida2_to_gruposMusicales);
             }
         }));
-
-        bt5a5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_bienvenida2_to_gruposMusicales);
-            }
-        });
-
-        bt6a6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_bienvenida2_to_gruposMusicales);
-            }
-        });
-
 
         listaArtista=new ArrayList<>();
 
@@ -201,7 +179,8 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
 
         try {
 
-            for (int i=0;i<json.length();i++){
+            //for (int i=0;i<json.length();i++){
+                for (int i=0;i<3;i++){
                 artista= new Artista();
                 JSONObject jsonObject=null;
                 jsonObject=json.getJSONObject(i);

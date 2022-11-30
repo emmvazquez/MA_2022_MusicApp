@@ -2,7 +2,7 @@ package com.example.appmusic.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
@@ -21,18 +20,23 @@ import com.android.volley.toolbox.Volley;
 import com.example.appmusic.R;
 import com.example.appmusic.entidades.Artista;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class registrosImagenUrlAdapter extends RecyclerView.Adapter<registrosImagenUrlAdapter.ArtistaHolder>{
 
-    List<Artista> listaArtista;
+    ArrayList<Artista> listaArtista;
+    ArrayList<Artista> listaOriginal;
     RequestQueue request;
     Context context;
     private Object VolleySingleton;
 
-    public registrosImagenUrlAdapter(List<Artista> listaArtista, Context context) {
+    public registrosImagenUrlAdapter(ArrayList<Artista> listaArtista, Context context) {
         this.listaArtista = listaArtista;
+        listaOriginal = new ArrayList<>();
+        listaOriginal.addAll(listaArtista);
         this.context=context;
         request= Volley.newRequestQueue(context);
     }
@@ -60,6 +64,35 @@ public class registrosImagenUrlAdapter extends RecyclerView.Adapter<registrosIma
 
             holder.logo.setImageResource(R.drawable.img);
         }
+    }
+
+    public void filtrado(String txtBuscar){
+        int longitud = txtBuscar.length();
+        if (longitud==0) {
+
+            listaArtista.clear();
+            listaArtista.addAll(listaOriginal);
+        }else{
+
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            List<Artista> Colecion = listaArtista.stream().filter(i -> i.getGeneroMusical().toLowerCase()
+                    .contains(txtBuscar.toLowerCase())).collect(Collectors.toList());
+
+
+            listaArtista.clear();
+            listaArtista.addAll(Colecion);
+        }else{
+
+                for (Artista C: listaOriginal){
+                    if (C.getGeneroMusical().toLowerCase().contains(txtBuscar.toLowerCase())){
+                        listaArtista.add(C);
+                    }
+                }
+            }
+
+        }
+        notifyDataSetChanged();
+
     }
 
     private void cargarImagenWebService(String rutaLogo, final ArtistaHolder holder) {
