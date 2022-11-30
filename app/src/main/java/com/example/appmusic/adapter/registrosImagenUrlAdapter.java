@@ -51,7 +51,7 @@ public class registrosImagenUrlAdapter extends RecyclerView.Adapter<registrosIma
         holder.txtNombreGrupo.setText(listaArtista.get(position).getNombreGrupo().toString());
         holder.txtDescripcion.setText(listaArtista.get(position).getDescripcion().toString());
         holder.txtGeneroMusical.setText(listaArtista.get(position).getGeneroMusical().toString());
-       // holder.txtCorreo.setText(listaArtista.get(position).getCorreoGrupo().toString());
+        holder.txtCorreo.setText(listaArtista.get(position).getCorreoGrupo().toString());
 
         if (listaArtista.get(position).getRutaLogo()!=null){
             //
@@ -66,7 +66,7 @@ public class registrosImagenUrlAdapter extends RecyclerView.Adapter<registrosIma
 
 
 
-        String urlImagen="http://192.168.0.107:80/proyectoMoviles/"+rutaLogo;
+        String urlImagen="https://precatory-levels.000webhostapp.com/"+rutaLogo;
         urlImagen=urlImagen.replace(" ","%20");
 
         ImageRequest imageRequest=new ImageRequest(urlImagen, new Response.Listener<Bitmap>() {
@@ -99,7 +99,7 @@ public class registrosImagenUrlAdapter extends RecyclerView.Adapter<registrosIma
             txtNombreGrupo    = (TextView)  itemView.findViewById(R.id.idNombreGrupoArtist);
             txtDescripcion    = (TextView)  itemView.findViewById(R.id.idDescripcionArtist);
             txtGeneroMusical  = (TextView)  itemView.findViewById(R.id.idGeneroMusicalArtist);
-            txtCorreo         = (TextView)  itemView.findViewById(R.id.idCorreoGrupo);
+            txtCorreo         = (TextView)  itemView.findViewById(R.id.idCorreoArtist);
             logo              = (ImageView) itemView.findViewById(R.id.idLogoArtista);
         }
 

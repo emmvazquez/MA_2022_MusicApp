@@ -6,17 +6,6 @@
     tools:context=".DatosArtistas"
     >
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/torre"/>
-
-    <ImageView
-        android:layout_marginLeft="310dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/torre"/>
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -79,6 +68,7 @@
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
 
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -96,6 +86,7 @@
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 android:layout_width="380dp"
                 android:layout_height="25dp"
@@ -110,35 +101,35 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="36dp"
-                android:src="@drawable/idlogo"
-                />
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
+                android:src="@drawable/idlogo" />
 
-    <EditText
-        android:id="@+id/idLogo"
-        android:layout_width="280dp"
-        android:layout_height="60dp"
-        android:layout_gravity="left"
-        android:drawableLeft="@drawable/idlogo"
-        android:enabled="false"
-        tools:ignore="SpeakableTextPresentCheck" />
-            <Button
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                android:id="@+id/idCargarImagen"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
+                <EditText
+                    android:id="@+id/idLogo"
+                    android:layout_width="280dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="left"
+                    android:drawableLeft="@drawable/idlogo"
+                    android:enabled="false"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
-                android:backgroundTint="@color/orange"
-                android:text="Logo"
-                android:textSize="12dp"
-                android:textColor="@color/black"
-                app:cornerRadius="20dp" />
-        </LinearLayout>
+                <Button
+
+                    android:id="@+id/idCargarImagen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+
+                    android:backgroundTint="@color/orange"
+                    android:text="Logo"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    app:cornerRadius="20dp" />
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
 
@@ -254,14 +245,14 @@
 
             <Button
                 android:id="@+id/idPerfilArtista"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:backgroundTint="@color/orange"
                 android:text="Registrar"
                 android:textColor="@color/black"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="15dp" />
 
         </LinearLayout>
 

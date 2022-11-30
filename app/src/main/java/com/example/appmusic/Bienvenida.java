@@ -7,6 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -14,6 +17,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavAction;
 import androidx.navigation.Navigation;
@@ -28,6 +34,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.appmusic.adapter.registrosImagenUrlAdapter;
 import com.example.appmusic.entidades.Artista;
+import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -91,10 +99,17 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return   inflater.inflate(R.layout.fragment_bienvenida, container, false);
+        View vista = inflater.inflate(R.layout.fragment_bienvenida, container, false);
+
+
+
+
+        return vista;
 
 
     }
+
+
 
 
     @Override
@@ -106,6 +121,36 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
         Button bt4a4 = view.findViewById(R.id.idGruposMusicales);
         Button bt5a5 = view.findViewById(R.id.idSolistas);
         Button bt6a6 = view.findViewById(R.id.idSonido);
+
+
+        MaterialToolbar toolbar = (MaterialToolbar) view.findViewById(R.id.topAppBar);
+        DrawerLayout drawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) view.findViewById(R.id.navigationView);
+
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick (View view) { drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int id = item.getItemId();
+                item.setChecked(true);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                switch (id){
+                    case R.id.nav_search:
+                        Navigation.findNavController(view).navigate(R.id.action_bienvenida2_to_datosArtistas);
+                        break;
+                }
+                return true;
+            }
+        });
+
+
 
 
         bt3a1.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +201,7 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
         dialogo.setMessage("Consultando Imagenes");
         dialogo.show();
 
-        String url="http://192.168.137.249:80/proyectoMoviles/ConsutarArtistas.php";
+        String url="https://precatory-levels.000webhostapp.com/ConsutarArtistas.php";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
         //VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);
@@ -178,7 +223,7 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
 
                 artista.setNombreGrupo((jsonObject.optString("nombreGrupo")));
                 artista.setDescripcion(jsonObject.optString("descripcion"));
-                artista.setGeneroMusical(jsonObject.optInt("generoMusical"));
+                artista.setGeneroMusical(jsonObject.optString("generoMusical"));
                 artista.setCorreoGrupo(jsonObject.optString("correo"));
                 artista.setRutaLogo(jsonObject.optString("rutaLogo"));
                 listaArtista.add(artista);

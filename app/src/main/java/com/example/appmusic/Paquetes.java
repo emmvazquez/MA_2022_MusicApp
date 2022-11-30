@@ -131,7 +131,7 @@ public class Paquetes extends Fragment {
                 progreso.show();
 
 
-                String url = "http://192.168.0.107:80/proyectoMoviles/paquetes.php?";
+                String url = "https://precatory-levels.000webhostapp.com/paquetes.php";
 
                 stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override

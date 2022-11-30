@@ -10,16 +10,16 @@ public class Artista {
 
     private String  nombreGrupo;
     private String  descripcion;
-    private Integer generoMusical;
+    private String generoMusical;
     private String  correoGrupo;
     private String  rutaLogo;
 
     public Artista() {
-        this.nombreGrupo = nombreGrupo;
-        this.descripcion = descripcion;
+        this.nombreGrupo   = nombreGrupo;
+        this.descripcion   = descripcion;
         this.generoMusical = generoMusical;
-        this.correoGrupo = correoGrupo;
-        this.rutaLogo = rutaLogo;
+        this.correoGrupo   = correoGrupo;
+        this.rutaLogo      = rutaLogo;
     }
 
     public String getNombreGrupo() {
@@ -38,11 +38,11 @@ public class Artista {
         this.descripcion = descripcion;
     }
 
-    public Integer getGeneroMusical() {
+    public String getGeneroMusical() {
         return generoMusical;
     }
 
-    public void setGeneroMusical(Integer generoMusical) {
+    public void setGeneroMusical(String generoMusical) {
         this.generoMusical = generoMusical;
     }
 

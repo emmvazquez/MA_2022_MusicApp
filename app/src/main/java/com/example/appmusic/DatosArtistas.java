@@ -230,7 +230,7 @@ public class DatosArtistas extends Fragment {
                 progreso.show();
 
 
-                String url = "http://192.168.0.107:80/proyectoMoviles/nuevoArtista.php?";
+                String url = "https://precatory-levels.000webhostapp.com/nuevoArtista.php";
 
 
                 stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -333,7 +333,6 @@ public class DatosArtistas extends Fragment {
                         parametros.put("correo",sCorreoGrupo);
                         parametros.put("contrasenaGrupo",sPasswordGrupo);
                         parametros.put("telefonoGrupo",sTelefonoGrupo);
-
 
                         return parametros;
                     }

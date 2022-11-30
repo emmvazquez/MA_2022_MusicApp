@@ -114,7 +114,7 @@ public class RegistroUsuarios extends Fragment {
                 progreso = new ProgressDialog(getContext());
                 progreso.setMessage("Cargando...");
                 progreso.show();
-                String url = "http://192.168.0.107:80/proyectoMoviles/RegistroUsuario.php?";
+                String url = "https://precatory-levels.000webhostapp.com/RegistroUsuario.php";
 
                 stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override

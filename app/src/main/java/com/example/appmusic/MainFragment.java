@@ -31,7 +31,7 @@ public class MainFragment extends Fragment {
 
     EditText usuariologin,contrasenalogin;
     ProgressDialog progressDialog;
-    String HttpURI = "http://192.168.137.249:80/proyectoMoviles/login.php";
+    String HttpURI = "https://precatory-levels.000webhostapp.com/login.php";
 
 ImageView imagen;
     // TODO: Rename parameter arguments, choose names that match
@@ -139,6 +139,7 @@ Picasso.get().load("http://www.logo.com").into(imagen);
 
                                             usuariologin.setText("");
                                             contrasenalogin.setText("");
+
                                             if(tipoUser == 1) {
                                                 Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_bienvenida2);
                                             }
