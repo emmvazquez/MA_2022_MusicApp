@@ -1,5 +1,6 @@
 package com.example.appmusic;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +12,20 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistroUsuarios extends Fragment {
     EditText nombre;
@@ -31,6 +37,8 @@ public class RegistroUsuarios extends Fragment {
     EditText password;
 
     Button registrar, cancelar;
+    ProgressDialog progreso;
+    StringRequest stringRequest;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -103,39 +111,72 @@ public class RegistroUsuarios extends Fragment {
             @Override
             public void onClick(View view) {
 
-                String sNombre = nombre.getText().toString();
-                String sApellidoP = apellidoPaterno.getText().toString();
-                String sApellidoM = apellidoMaterno.getText().toString();
-                String sCorreo = correo.getText().toString();
-                String sTelefono = telefono.getText().toString();
-                String sUsuario = usuario.getText().toString();
-                String sPassword = password.getText().toString();
+                progreso = new ProgressDialog(getContext());
+                progreso.setMessage("Cargando...");
+                progreso.show();
+                String url = "http://192.168.0.107:80/proyectoMoviles/RegistroUsuario.php?";
 
-
-
-                String url = "http://192.168.137.247:80/proyectoMoviles/RegistroUsuario.php?nombre="+sNombre+"&apellidoPaterno="+sApellidoP+"&apellidoMaterno="+
-                        sApellidoM+"&correo="+sCorreo+"&telefono="+sTelefono+"&usuario="+sUsuario+"&contrasena="+sPassword;
-
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                        Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        Toast.makeText(view.getContext(), response.toString(), Toast.LENGTH_LONG).show();
-                        Navigation.findNavController(view).navigate(R.id.action_registroUsuarios2_to_mainFragment3);
+                    public void onResponse(String response) {
+
+                        progreso.hide();
+
+                        if(response.trim().equalsIgnoreCase("Registra")){
+
+                            Toast.makeText(getContext(),"Se ha registrado con exito el usuario: "+nombre,Toast.LENGTH_LONG).show();
+
+                            nombre.setText("");
+                            apellidoMaterno.setText("");
+                            apellidoPaterno.setText("");
+                            correo.setText("");
+                            telefono.setText("");
+                            usuario.setText("");
+                            password.setText("");
+
+
+                            Navigation.findNavController(view).navigate(R.id.action_registroUsuarios2_to_mainFragment3);
+                        }else
+                        {
+
+                            Toast.makeText(getContext(),"No se ha podido registrar el usuario",Toast.LENGTH_LONG).show();
+                        }
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(view.getContext(),error.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(),"No se ha podido conecatar",Toast.LENGTH_LONG).show();
+                        progreso.hide();
+
 
                     }
                 }
-                );
-                jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(
-                        Constants.MY_DEFAULT_TIMEOUT,
-                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-                queue.add(jsonObjectRequest);
+                ){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        String sNombre = nombre.getText().toString();
+                        String sApellidoP = apellidoPaterno.getText().toString();
+                        String sApellidoM = apellidoMaterno.getText().toString();
+                        String sCorreo = correo.getText().toString();
+                        String sTelefono = telefono.getText().toString();
+                        String sUsuario = usuario.getText().toString();
+                        String sPassword = password.getText().toString();
+
+                        Map<String,String> parametros = new HashMap<>();
+                        parametros.put("nombre",sNombre);
+                        parametros.put("apellidoPaterno",sApellidoP);
+                        parametros.put("apellidoMaterno",sApellidoM);
+                        parametros.put("telefono",sTelefono);
+                        parametros.put("correo",sCorreo);
+                        parametros.put("usuario",sUsuario);
+                        parametros.put("contrasena",sPassword);
+
+                        return parametros;
+                    }
+                };
+
+                queue.add(stringRequest);
 
 
             }

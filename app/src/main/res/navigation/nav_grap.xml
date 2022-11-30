@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_registroUsuarios22"
             app:destination="@id/registroUsuarios2" />
+        <action
+            android:id="@+id/action_mainFragment_to_perfilArtista"
+            app:destination="@id/perfilArtista" />
     </fragment>
     <fragment
         android:id="@+id/bienvenida2"

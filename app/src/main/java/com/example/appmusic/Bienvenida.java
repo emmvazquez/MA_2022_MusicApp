@@ -1,20 +1,49 @@
 package com.example.appmusic;
 
+import android.app.ActionBar;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavAction;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class Bienvenida extends Fragment {
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.appmusic.adapter.registrosImagenUrlAdapter;
+import com.example.appmusic.entidades.Artista;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.zip.Inflater;
+
+public class Bienvenida extends Fragment implements Response.Listener<JSONObject>, Response.ErrorListener{
+
+    RecyclerView recyclerArtista;
+    ArrayList<Artista> listaArtista;
     ViewFlipper v_flipper;
+    ProgressDialog dialogo;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +53,7 @@ public class Bienvenida extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ActionBar dialog;
 
     public Bienvenida() {
         // Required empty public constructor
@@ -61,12 +91,16 @@ public class Bienvenida extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bienvenida, container, false);
+        return   inflater.inflate(R.layout.fragment_bienvenida, container, false);
+
+
     }
 
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
+
 
         Button bt3a1 = view.findViewById(R.id.idServicios);
         Button bt4a4 = view.findViewById(R.id.idGruposMusicales);
@@ -104,8 +138,71 @@ public class Bienvenida extends Fragment {
         });
 
 
+        listaArtista=new ArrayList<>();
+
+        recyclerArtista = (RecyclerView) view.findViewById(R.id.idRecyclerArtista);
+        recyclerArtista.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerArtista.setHasFixedSize(true);
+
+        request= Volley.newRequestQueue(getContext());
+
+        cargarWebService();
+
 
     }
+
+    private void cargarWebService() {
+        dialogo=new ProgressDialog(getContext());
+        dialogo.setMessage("Consultando Imagenes");
+        dialogo.show();
+
+        String url="http://192.168.137.249:80/proyectoMoviles/ConsutarArtistas.php";
+        jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
+        request.add(jsonObjectRequest);
+        //VolleySingleton.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+
+    @Override
+    public void onResponse(JSONObject response) {
+        Artista artista=null;
+
+        JSONArray json=response.optJSONArray("nuevoartista");
+
+        try {
+
+            for (int i=0;i<json.length();i++){
+                artista= new Artista();
+                JSONObject jsonObject=null;
+                jsonObject=json.getJSONObject(i);
+
+                artista.setNombreGrupo((jsonObject.optString("nombreGrupo")));
+                artista.setDescripcion(jsonObject.optString("descripcion"));
+                artista.setGeneroMusical(jsonObject.optInt("generoMusical"));
+                artista.setCorreoGrupo(jsonObject.optString("correo"));
+                artista.setRutaLogo(jsonObject.optString("rutaLogo"));
+                listaArtista.add(artista);
+            }
+            dialogo.hide();
+            registrosImagenUrlAdapter adapter=new registrosImagenUrlAdapter(listaArtista,getContext());
+            recyclerArtista.setAdapter(adapter);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "No se ha podido establecer conexión con el servidor" +
+                    " "+response, Toast.LENGTH_LONG).show();
+            dialogo.hide();
+        }
+    }
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Toast.makeText(getContext(), "No se puede conectar "+error.toString(), Toast.LENGTH_LONG).show();
+        System.out.println();
+        dialogo.hide();
+        Log.d("ERROR: ", error.toString());
+
+    }
+
 
 
 }
