@@ -2,26 +2,20 @@ package com.example.appmusic;
 
 import android.app.ActionBar;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavAction;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,7 +28,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.appmusic.adapter.registrosImagenUrlAdapter;
 import com.example.appmusic.entidades.Artista;
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
@@ -42,7 +35,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class Bienvenida extends Fragment implements Response.Listener<JSONObject>, Response.ErrorListener{
 
@@ -52,7 +44,6 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
     ProgressDialog dialogo;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -101,16 +92,10 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_bienvenida, container, false);
 
-
-
-
         return vista;
 
 
     }
-
-
-
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -123,9 +108,9 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
         Button bt6a6 = view.findViewById(R.id.idSonido);
 
 
-        MaterialToolbar toolbar = (MaterialToolbar) view.findViewById(R.id.topAppBar);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.topAppBar);
         DrawerLayout drawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
-        NavigationView navigationView = (NavigationView) view.findViewById(R.id.navigationView);
+        NavigationView navigationView = (NavigationView) view.findViewById(R.id.idNavegationView);
 
 
 

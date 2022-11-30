@@ -3,13 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/juan2/Videos/copias de nuetra app/AppMusic2/app/src/main/res/layout/fragment_main.xml" value="0.2" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1605" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.143" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/drawable/ic_baseline_stay_current_portrait_24.xml" value="0.143" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/font/poppins_regular.xml" value="0.26481481481481484" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/font/poppins_semibold.xml" value="0.27589743589743587" />
+        <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/artista_list.xml" value="0.25" />
+        <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/fragment_artistas.xml" value="0.25" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/fragment_bienvenida.xml" value="0.25" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/fragment_contratacion.xml" value="0.25" />
@@ -20,8 +21,10 @@
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/fragment_registrousuarios.xml" value="0.25" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/header_menu.xml" value="0.25" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/siguiente.xml" value="0.25" />
+        <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/layout/toolbar.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/menu/main_menu.xml" value="0.25" />
         <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/AppMusicUnidad07/AppMusic/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.143" />
+        <entry key="..\:/Users/lalo2/OneDrive/Documentos/Desarrollo de aplicaciones moviles/copias de nuetra app/AppMusic/app/src/main/res/layout/fragment_bienvenida.xml" value="0.25" />
       </map>
     </option>
   </component>
