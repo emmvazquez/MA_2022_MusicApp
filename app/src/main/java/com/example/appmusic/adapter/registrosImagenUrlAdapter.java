@@ -134,6 +134,21 @@ public class registrosImagenUrlAdapter extends RecyclerView.Adapter<registrosIma
             txtGeneroMusical  = (TextView)  itemView.findViewById(R.id.idGeneroMusicalArtist);
             txtCorreo         = (TextView)  itemView.findViewById(R.id.idCorreoArtist);
             logo              = (ImageView) itemView.findViewById(R.id.idLogoArtista);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    /*
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, MainActivity.class);
+                    intent.putExtra("IdArtista",listaArtista.get(getAdapterPosition()).getIdArtista());
+                    context.startActivity(intent);
+                     */
+
+
+                }
+            });
         }
 
 }}

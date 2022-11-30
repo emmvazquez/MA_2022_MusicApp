@@ -107,6 +107,8 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
 
 
 
+        //Se agrego el menu lateral
+
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.topAppBar);
         DrawerLayout drawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.idNavegationView);
@@ -126,16 +128,24 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
                 item.setChecked(true);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 switch (id){
+
+                    case R.id.nav_home:
+                        Navigation.findNavController(view).navigate(R.id.bienvenida2);
+                        break;
                     case R.id.nav_search:
                         Navigation.findNavController(view).navigate(R.id.action_bienvenida2_to_datosArtistas);
                         break;
+                    case R.id.nav_user:
+                        Navigation.findNavController(view).navigate(R.id.action_bienvenida2_to_gruposMusicales);
+                        break;
+
                 }
                 return true;
             }
         });
 
 
-
+//Termino le menu lateral
 
 
 
@@ -180,11 +190,12 @@ public class Bienvenida extends Fragment implements Response.Listener<JSONObject
         try {
 
             //for (int i=0;i<json.length();i++){
-                for (int i=0;i<3;i++){
+                for (int i=0;i<1;i++){
                 artista= new Artista();
                 JSONObject jsonObject=null;
                 jsonObject=json.getJSONObject(i);
 
+                artista.setIdArtista(jsonObject.optInt("idArtista"));
                 artista.setNombreGrupo((jsonObject.optString("nombreGrupo")));
                 artista.setDescripcion(jsonObject.optString("descripcion"));
                 artista.setGeneroMusical(jsonObject.optString("generoMusical"));

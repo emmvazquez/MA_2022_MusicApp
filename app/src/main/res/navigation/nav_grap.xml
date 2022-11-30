@@ -31,6 +31,12 @@
         <action
             android:id="@+id/action_bienvenida2_to_gruposMusicales"
             app:destination="@id/gruposMusicales" />
+        <action
+            android:id="@+id/action_bienvenida2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_bienvenida2_self"
+            app:destination="@id/bienvenida2" />
     </fragment>
     <fragment
         android:id="@+id/datosArtistas"
@@ -40,6 +46,12 @@
         <action
             android:id="@+id/action_datosArtistas_to_perfilArtista"
             app:destination="@id/perfilArtista" />
+        <action
+            android:id="@+id/action_datosArtistas_to_bienvenida2"
+            app:destination="@id/bienvenida2" />
+        <action
+            android:id="@+id/action_datosArtistas_self"
+            app:destination="@id/datosArtistas" />
     </fragment>
     <fragment
         android:id="@+id/perfilArtista"
@@ -70,6 +82,15 @@
         <action
             android:id="@+id/action_gruposMusicales_to_perfilContratacion"
             app:destination="@id/perfilContratacion" />
+        <action
+            android:id="@+id/action_gruposMusicales_to_bienvenida2"
+            app:destination="@id/bienvenida2" />
+        <action
+            android:id="@+id/action_gruposMusicales_self"
+            app:destination="@id/gruposMusicales" />
+        <action
+            android:id="@+id/action_gruposMusicales_to_datosArtistas"
+            app:destination="@id/datosArtistas" />
     </fragment>
     <fragment
         android:id="@+id/contratacion"
@@ -79,6 +100,9 @@
         <action
             android:id="@+id/action_contratacion_to_reservacion"
             app:destination="@id/reservacion" />
+        <action
+            android:id="@+id/action_contratacion_to_bienvenida2"
+            app:destination="@id/bienvenida2" />
     </fragment>
     <fragment
         android:id="@+id/perfilContratacion"
@@ -88,6 +112,12 @@
         <action
             android:id="@+id/action_perfilContratacion_to_contratacion"
             app:destination="@id/contratacion" />
+        <action
+            android:id="@+id/action_perfilContratacion_to_bienvenida2"
+            app:destination="@id/bienvenida2" />
+        <action
+            android:id="@+id/action_perfilContratacion_to_bienvenida22"
+            app:destination="@id/bienvenida2" />
     </fragment>
     <fragment
         android:id="@+id/reservacion"
@@ -96,6 +126,12 @@
         tools:layout="@layout/fragment_reservacion" >
         <action
             android:id="@+id/action_reservacion_to_bienvenida2"
+            app:destination="@id/bienvenida2" />
+        <action
+            android:id="@+id/action_reservacion_to_bienvenida22"
+            app:destination="@id/bienvenida2" />
+        <action
+            android:id="@+id/action_reservacion_to_bienvenida23"
             app:destination="@id/bienvenida2" />
     </fragment>
     <fragment

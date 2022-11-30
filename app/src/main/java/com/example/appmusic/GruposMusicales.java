@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,6 +12,9 @@ import android.widget.SearchView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +28,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.appmusic.adapter.registrosImagenUrlAdapter;
 import com.example.appmusic.entidades.Artista;
+import com.google.android.material.navigation.NavigationView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -113,6 +118,48 @@ public class GruposMusicales extends Fragment implements SearchView.OnQueryTextL
         cargarWebService();
 
         Buscar.setOnQueryTextListener(this);
+
+
+        //Se agrego el menu lateral
+
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.topAppBarGrupos);
+        DrawerLayout drawerLayout = (DrawerLayout) view.findViewById(R.id.drawer_grupos);
+        NavigationView navigationView = (NavigationView) view.findViewById(R.id.idNavegationView);
+
+
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick (View view) { drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int id = item.getItemId();
+                item.setChecked(true);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                switch (id){
+
+                    case R.id.nav_home:
+                        Navigation.findNavController(view).navigate(R.id.action_gruposMusicales_to_bienvenida2);
+                        break;
+                    case R.id.nav_search:
+                        Navigation.findNavController(view).navigate(R.id.action_gruposMusicales_to_datosArtistas);
+                        break;
+                    case R.id.nav_user:
+                        Navigation.findNavController(view).navigate(R.id.gruposMusicales);
+                        break;
+
+                }
+                return true;
+            }
+        });
+
+
+//Termino le menu lateral
+
     }
     private void cargarWebService() {
         dialogo=new ProgressDialog(getContext());

@@ -6,22 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GruposMusicales"
+    android:id="@+id/drawer_grupos"
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="450dp">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:text="Contratacion">
+
         <SearchView
             android:id="@+id/idBuscador"
-            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:queryHint="Genero musical"
             android:layout_marginTop="10dp">
@@ -48,5 +58,28 @@
     </LinearLayout>
 
 </ScrollView>
+</RelativeLayout>
+
+    </LinearLayout>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbargrupos"
+        ></include>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/content_main"
+        ></include>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/idNavegationView"
+        app:menu="@menu/main_menu"
+        app:headerLayout="@layout/header_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

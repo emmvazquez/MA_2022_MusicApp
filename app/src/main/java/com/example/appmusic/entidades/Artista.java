@@ -1,13 +1,9 @@
 package com.example.appmusic.entidades;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
-
-
 public class Artista {
 
 
+    private Integer idArtista;
     private String  nombreGrupo;
     private String  descripcion;
     private String generoMusical;
@@ -15,12 +11,17 @@ public class Artista {
     private String  rutaLogo;
 
     public Artista() {
+        this.idArtista     = idArtista;
         this.nombreGrupo   = nombreGrupo;
         this.descripcion   = descripcion;
         this.generoMusical = generoMusical;
         this.correoGrupo   = correoGrupo;
         this.rutaLogo      = rutaLogo;
     }
+
+    public Integer getIdArtista() {return idArtista;}
+
+    public void setIdArtista(Integer idArtista) {this.idArtista = idArtista;}
 
     public String getNombreGrupo() {
         return nombreGrupo;

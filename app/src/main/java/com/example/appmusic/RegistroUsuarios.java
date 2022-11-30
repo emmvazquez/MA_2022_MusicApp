@@ -13,16 +13,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -114,7 +110,7 @@ public class RegistroUsuarios extends Fragment {
                 progreso = new ProgressDialog(getContext());
                 progreso.setMessage("Cargando...");
                 progreso.show();
-                String url = "https://precatory-levels.000webhostapp.com/RegistroUsuario.php";
+                String url = "https://precatory-levels.000webhostapp.com/ConsutarArtistas.php";
 
                 stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override

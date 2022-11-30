@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/topAppBar"
+        android:id="@+id/topAppBarGrupos"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/purple_500"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:navigationIcon="@drawable/ic_baseline_menu_24"
-        app:title="Bienvenido">
+        app:title="Catalogo de grupos">
 
     </androidx.appcompat.widget.Toolbar>
 
