@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Bienvenida">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/guitar"/>
+
+    <ImageView
+        android:layout_marginLeft="310dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/guitar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:text="Servicios ofredicos">
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="Servicios"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+
+                android:textSize="40dp" />
+
+            <Button
+                android:id="@+id/idGruposMusicales"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="@color/orange"
+                android:text="Grupos Musicales"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp" />
+
+
+            <Button
+                android:id="@+id/idSonido"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="150dp"
+                android:backgroundTint="@color/orange"
+                android:text="Sonidos"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp" />
+
+            <Button
+                android:id="@+id/idSolistas"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="150dp"
+                android:backgroundTint="@color/orange"
+                android:text="Solistas"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp" />
+
+
+            <Button
+                android:id="@+id/idServicios"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
+                android:text="Registrar servicios"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/micro" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="90dp"
+                    android:layout_marginLeft="230dp"
+                    android:background="@drawable/micro" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
+
+
+
+
